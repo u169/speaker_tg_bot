@@ -8,13 +8,17 @@ import telebot
 TOKEN = sys.argv[1]
 print(TOKEN)
 
+global counter
+counter = 0
 
 bot = telebot.TeleBot(TOKEN)
 
 
 def say(msg):
     def run_sub(msg):
-        subprocess.run(["python3", "Speeker.py", msg])
+        global counter
+        counter += 1
+        subprocess.run(["python3", "Speeker.py", msg, str(counter)])
 
     x = threading.Thread(target=run_sub, args=(msg,))
     x.start()

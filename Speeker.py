@@ -1,20 +1,15 @@
 import sys
 
-import pyttsx3
+from gtts import gTTS
+import os
 
 
-class Speeker:
+if __name__ == "__main__":
+    user_msg = sys.argv[1]
 
-    def __init__(self):
-        self.voice = pyttsx3.init()
-
-    def say(self, msg):
-        self.voice.say(msg)
-        self.voice.runAndWait()
-        self.voice.stop()
-
-
-if __name__ == '__main__':
-    msg = sys.argv[1]
-    sp = Speeker()
-    sp.say(msg)
+    tts = gTTS(text=user_msg, lang='ru')
+    
+    name = "{}good.mp3".format(sys.argv[2])
+    tts.save(name)
+    os.system("mpg321 {}".format(name))
+    os.system("rm {}".format(name))
