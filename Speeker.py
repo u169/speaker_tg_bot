@@ -51,6 +51,7 @@ def get_answer(question):
 
 if __name__ == "__main__":
     user_msg = sys.argv[1]
+    print(user_msg)
     
     answer = get_answer(user_msg)['answer']
 
