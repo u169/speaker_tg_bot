@@ -23,8 +23,8 @@ def get_answer(question):
 }
 
     data = {
-
-	"request_1":question,
+	"request": question,
+	"request_1":"",
 	"answer_1":"",
 	"request_2":"",
 	"answer_2":"",
