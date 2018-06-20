@@ -46,7 +46,7 @@ def get_answer(question):
 
     resp = requests.post(url=url, headers=headers, data=data)
 
-    return resp.json()
+    return resp
 
 
 if __name__ == "__main__":
@@ -54,8 +54,8 @@ if __name__ == "__main__":
     print(user_msg)
     
     j = get_answer(user_msg)
-    print(j)
-    answer = j['answer']
+    print(j.content)
+    answer = j.json()['answer']
 
     tts = gTTS(text=answer, lang='ru')
     
